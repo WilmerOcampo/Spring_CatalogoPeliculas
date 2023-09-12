@@ -1,0 +1,36 @@
+.actor-img {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    height: 100%; /* Ajusta la altura al 100% del contenedor */
+    object-fit: cover; /* Mantiene la proporción y hace zoom para completar el cuadro */
+}
+
+.actors-container2{
+    display: flex;
+    align-content: stretch;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.actor-img2{
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    background-color: midnightblue;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 4px;
+}
+
+.actor-text2{
+    height: 32px;
+}
+
+#img-preview{
+    width: 200px;
+    height: 115px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

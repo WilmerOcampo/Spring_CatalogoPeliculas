@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layouts/head :: head}">
+    <meta charset="UTF-8">
+    <title>Películas</title>
+</head>
+<body>
+<header th:insert="~{layouts/header :: header}">
+
+</header>
+<div class="container">
+    <div class="py-4">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Título</th>
+                <th scope="col">Género</th>
+                <th scope="col">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="pelicula : ${peliculas}">
+                <th scope="row" th:text="${pelicula.id}"></th>
+                <th th:text="${pelicula.title}"></th>
+                <td th:text="${pelicula.genre.name}"></td>
+                <td>
+                    <a class="btn btn-outline-info" th:href="@{'/pelicula/' + ${pelicula.id}}">Editar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

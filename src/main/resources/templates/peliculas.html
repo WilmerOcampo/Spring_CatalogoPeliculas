@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layouts/head :: head}">
+    <meta charset="UTF-8">
+    <title>Películas</title>
+</head>
+<body>
+    <header th:insert="~{layouts/header :: header}">
+
+    </header>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-4 g-4 py-4">
+            <div class="col" th:each="pelicula : ${peliculas}">
+                <div class="card">
+                    <img th:src="${pelicula.cover == null ? 'https://acortar.link/1Aheht' : pelicula.cover}" class="card-img-top" alt="Logo de Película">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${pelicula.title}"></h5>
+                        <p class="card-text" th:text="${pelicula.genre.name}"></p>
+                        <div class="actors-container2" th:each="actor : ${pelicula.actors}">
+                            <div class="actor-img2" th:style="'background-image:url(' + ${actor.urlImg} + ')'">
+
+                            </div>
+                            <div class="actor-text2" th:text="${actor.name}">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
