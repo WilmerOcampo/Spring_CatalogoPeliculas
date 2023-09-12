@@ -48,6 +48,7 @@ public class PeliculaController {
         model.addAttribute("pelicula", pelicula);
         model.addAttribute("genres", gservice.findAll());
         model.addAttribute("actors", aservice.findAll());
+        //model.addAttribute("editactors", pelicula.getActors());
         model.addAttribute("titulo", "Editar Película");
         return "new-pelicula";
     }

@@ -1,7 +1,12 @@
+.container{
+    min-height: 100vh;
+}
+
 .actor-img {
     width: 100%; /* Ajusta el ancho al 100% del contenedor */
     height: 100%; /* Ajusta la altura al 100% del contenedor */
     object-fit: cover; /* Mantiene la proporción y hace zoom para completar el cuadro */
+    border-radius: 100%;
 }
 
 .actors-container2{
@@ -33,4 +38,31 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+/* Estilo personalizado para el div cover-view */
+.cover-preview {
+    max-width: 184px; /* Tamaño máximo deseado */
+    width: 100%; /* Ancho máximo */
+    max-height: 280px; /* Altura máxima deseada */
+    height: auto; /* Altura automática */
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    margin: 0 auto; /* Centrar horizontalmente dentro del contenedor padre */
+}
+
+/* Estilo personalizado para el .card-cover */
+.card-cover img {
+    max-width: 100%; /* Asegurar que la imagen se ajuste al contenedor */
+    height: auto; /* Altura automática */
+    border-radius: 5%;
+    margin: 5px 2px 2px 2px;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #f6f6f6; /* Color de fondo opcional */
+    padding: 10px; /* Espaciado interno opcional */
+    text-align: center; /* Centrar el contenido del footer */
 }

@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:insert="~{layouts/head :: head}">
-</head>
+<head th:insert="~{layouts/head :: head}"></head>
 <body>
-    <header th:insert="~{layouts/header :: header}">
 
-    </header>
+    <header th:insert="~{layouts/header :: header}"></header>
+
     <div class="container">
         <h2 th:text="${titulo}" class="py-4"></h2>
         <form class="row g-3" th:action="@{/pelicula}" th:object="${pelicula}" method="post" enctype="multipart/form-data"> <!--enctype="multipart/form-data" <- Nos permitirá subir archivos-->
             <div class="row mb-3">
                 <label for="title" class="col-sm-2 col-form-label">Título</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="title" placeholder="Título de la Película" th:field="*{title}">
-                    <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">
-
-                    </div>
+                    <input type="text" class="form-control" id="title" placeholder="Título de la Película"
+                           th:field="*{title}">
+                    <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
                 </div>
             </div>
+
             <div class="row mb-3">
                 <label for="release" class="col-sm-2 col-form-label">Estreno</label>
                 <div class="col-sm-10">
                     <input type="date" class="form-control" id="release" th:field="*{release}">
-                    <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('release')}" th:errors="*{release}">
-
-                    </div>
+                    <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('release')}" th:errors="*{release}"></div>
                 </div>
             </div>
+
             <div class="row mb-3">
                 <label for="genre" class="col-sm-2 col-form-label">Género</label>
                 <div class="col-sm-10">
@@ -34,11 +32,10 @@
                         <option th:text="'Seleccione Género'" th:value="0"></option>
                         <option th:each="genre : ${genres}" th:text="${genre.name}" th:value="${genre.id}"></option>
                     </select>
-                    <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}">
-
-                    </div>
+                    <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"></div>
                 </div>
             </div>
+
             <div class="row mb-3">
                 <label for="actors" class="col-sm-2 col-form-label">Actores</label>
                 <div class="col-sm-10">
@@ -48,27 +45,49 @@
                     </select>
                 </div>
             </div>
+
             <div class="row mb-3">
                 <label for="cover" class="col-sm-2 col-form-label">Imagen Portada</label>
                 <div class="col-sm-10">
-                    <input type="url" class="form-control" id="cover" name="cover" placeholder="URL de la Portada de la Película" onchange="imgPreview()">
-                    <div id="img-preview" class="d-none">
-
-                    </div>
+                    <input type="url" class="form-control" id="cover" name="cover" placeholder="URL de la Portada de la Película" oninput="coverView()">
                 </div>
             </div>
 
             <input id="ids" name="ids" type="text" hidden="hidden">
             <input id="id" name="id" type="text" hidden="hidden" th:field="*{id}">
 
-            <div id="actors-container" class="row d-flex justify-content-evenly">
-
+            <div>
+                <div class="cover-preview mb-4">
+                    <div class="card-cover">
+                        <img id="cover-preview" loading="lazy" alt="">
+                    </div>
+                </div>
+                <div id="actors-container" class="row d-flex justify-content-evenly">
+                    <!--Selección de actores-->
+                </div>
             </div>
+
+            <!--div id="edit-actors-container">
+                <h2>Actores</h2>
+                    <div th:each="eactor : ${editactors}">
+                        <div class="card col-md-3 m-2" style="width: 10rem">
+                        <img th:src="${eactor.urlImg}" class="card-img-top actor-img" width="104px" height="104px">
+                        <div class="card-body">
+                            <p th:text="${eactor.name}" class="card-text"></p>
+                            <button class="btn btn-danger" onclick="deleteActor(this); return false;">Eliminar</button>
+                        </div>
+                        </div>
+                    </div>
+            </div-->
+
+
             <div class="col-12 d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary" >Guardar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
         </form>
     </div>
+
+    <footer th:insert="~{layouts/footer :: footer}"></footer>
 
 </body>
 </html>

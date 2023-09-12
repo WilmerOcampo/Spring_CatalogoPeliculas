@@ -22,7 +22,7 @@ function actorSelected(select){
 function addActor(id, name, urlImg){
     let htmlString = `
         <div class="card col-md-3 m-2" style="width: 10rem">
-            <img src="{URL-IMG}" class="card-img-top actor-img" width="104px" height="104px">
+            <img src="{URL-IMG}" class="card-img-top actor-img" >
             <div class="card-body">
                 <p class="card-text">{NAME}</p>
                 <button class="btn btn-danger" data-id="{ID}" onclick="deleteActor(this); return false;">Eliminar</button>  
@@ -60,3 +60,17 @@ function deleteActor(btn){
         view.style.backgroundImage = 'url("' + e.target.result + '")';
     }
 }*/
+
+function coverView() {
+    let url = document.getElementById("cover").value;
+    let cover = document.getElementById("cover-preview");
+
+    cover.onload = function() {
+        console.log("La imagen se ha cargado correctamente.");
+    };
+
+    cover.src = url;
+
+    // Cargar la imagen cuando la página se carga por primera vez (opcional)
+    window.onload = coverView;
+}

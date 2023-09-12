@@ -1,0 +1,15 @@
+<footer th:fragment="footer">
+    <p>&copy; <span id="year"></span> Wilmer Ocampo</p>
+    <script>
+        // Obtener el elemento span por su ID
+        const yearElement = document.getElementById('year');
+        // Obtener el año actual
+        const currentYear = new Date().getFullYear();
+        // Insertar el año actual en el elemento span
+        yearElement.textContent = currentYear;
+    </script>
+</footer>
+
+<!--Scripts-->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="/js/scripts.js"></script>
